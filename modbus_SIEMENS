@@ -1,0 +1,36 @@
+#### LCS Automação Industrial #### 
+### Lucas P. de Sousa_03/06/2026 ###
+### Aplicativo criado para fazer a leitura e escrita do CLP ###
+# Conexão com Siemens
+
+# Importa as bibliotecas
+from modbus_SIEMENS import read_modbus_SIEMENS, write_modbus_SIEMENS
+import time
+
+
+
+
+#Tenta execução do APP, se falha print msg de erro
+try:
+    while True:
+
+        #Define as variaveis de IP para configuração do bloco
+        IP_leitura="192.168.100.20"
+        IP_escrita="192.168.100.20"
+        #Define valores de escrita no CLP
+        valores_escrita=[35,20,30,40,50,60]
+        
+        #Faz a chamada do bloco read_mosbus
+        LEITURA=read_modbus_SIEMENS(IP_leitura)
+        print(LEITURA)
+        time.sleep(0.5)
+        #Faz a chamada do bloco write_mosbus
+        ESCRITA=write_modbus_SIEMENS(IP_escrita, valores_escrita)
+        print(ESCRITA)
+        #Temporizador de meio segundo para proxima execução
+        time.sleep(0.5)
+except:
+    print("Falha no APP")   
+    
+
+    
