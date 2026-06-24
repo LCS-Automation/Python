@@ -1,0 +1,5 @@
+pip install pyModbusTCP
+
+pip install python-snap7
+
+pip install db-sqlite3
